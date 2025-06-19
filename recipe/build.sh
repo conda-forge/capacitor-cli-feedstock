@@ -15,23 +15,22 @@ pnpm install
 pnpm-licenses generate-disclaimer --prod --output-file=third-party-licenses.txt
 
 mkdir -p ${PREFIX}/bin
-
 tee ${PREFIX}/bin/capacitor << EOF
 #!/bin/sh
-exec ${PREFIX}/lib/node_modules/@capacitor/cli/bin/capacitor
+exec \${CONDA_PREFIX}/lib/node_modules/@capacitor/cli/bin/capacitor "\$@"
 EOF
 chmod +x ${PREFIX}/bin/capacitor
 
 tee ${PREFIX}/bin/cap << EOF
 #!/bin/sh
-exec ${PREFIX}/lib/node_modules/@capacitor/cli/bin/capacitor
+exec \${CONDA_PREFIX}/lib/node_modules/@capacitor/cli/bin/capacitor "\$@"
 EOF
 chmod +x ${PREFIX}/bin/cap
 
 tee ${PREFIX}/bin/capacitor.cmd << EOF
-call %CONDA_PREFIX%\bin\node %PREFIX%\lib\node_modules\@capacitor\cli\bin\capacitor %*
+call %CONDA_PREFIX%\bin\node %CONDA_PREFIX%\lib\node_modules\@capacitor\cli\bin\capacitor %*
 EOF
 
 tee ${PREFIX}/bin/cap.cmd << EOF
-call %CONDA_PREFIX%\bin\node %PREFIX%\lib\node_modules\@capacitor\cli\bin\capacitor %*
+call %CONDA_PREFIX%\bin\node %CONDA_PREFIX%\lib\node_modules\@capacitor\cli\bin\capacitor %*
 EOF
