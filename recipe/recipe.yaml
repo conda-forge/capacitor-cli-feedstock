@@ -1,5 +1,5 @@
 context:
-  version: "8.6.0"
+  version: "8.6.2"
 
 package:
   name: capacitor-cli
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://registry.npmjs.org/@capacitor/cli/-/cli-${{ version }}.tgz
-  sha256: 6239e51b78a85be3b8467d34276af839209b34c40ba94c34395b92baef16baf4
+  sha256: 4ffacddb173b100a460862c91ee8562689c58c531b06bfa30cc53feb35d2f532
 
 build:
   number: 0
